@@ -39,4 +39,16 @@ public class CircularBufferTest {
         assertFalse("Buffer is empty", result);
     }
 
+    @Test
+    public void add_A_for_nine_times_and_buffer_is_not_full() {
+        CircularBuffer cb = new CircularBuffer();
+        for(int i=0; i<9; i++) {
+            cb.writeData("A");
+        }
+        boolean result = cb.isFull();
+        assertFalse("Buffer is not full", result);
+
+    }
+
+
 }
