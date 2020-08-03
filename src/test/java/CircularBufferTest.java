@@ -31,4 +31,12 @@ public class CircularBufferTest {
 
     }
 
+    @Test
+    public void write_A_to_new_buffer_should_not_be_empty() {
+        CircularBuffer cb = new CircularBuffer();
+        cb.writeData("A");
+        boolean result = cb.isEmpty();
+        assertFalse("Buffer is empty", result);
+    }
+
 }
