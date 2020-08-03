@@ -40,7 +40,7 @@ public class CircularBufferTest {
     }
 
     @Test
-    public void add_A_for_nine_times_and_buffer_is_not_full() {
+    public void write_A_for_nine_times_and_buffer_is_not_full() {
         CircularBuffer cb = new CircularBuffer();
         for(int i=0; i<9; i++) {
             cb.writeData("A");
@@ -50,5 +50,14 @@ public class CircularBufferTest {
 
     }
 
+    @Test
+    public void write_A_for_ten_times_then_11th_time_B_should_overwrite_A () {
+        CircularBuffer cb = new CircularBuffer();
+        for(int i=0; i<10; i++) {
+            cb.writeData("A");
+        }
+        cb.writeData("B");
+        assertEquals("B", cb.readData());
+    }
 
 }
