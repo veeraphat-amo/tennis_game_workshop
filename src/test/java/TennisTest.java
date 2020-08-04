@@ -11,7 +11,6 @@ import org.junit.runners.Parameterized.Parameters;
 
 @RunWith(Parameterized.class)
 public class TennisTest {
-
     private int player1Score;
     private int player2Score;
     private String expectedScore;
@@ -66,7 +65,7 @@ public class TennisTest {
         });
     }
 
-    public void checkAllScores(TennisGame game) {
+    public void checkAllScores(TennisGame2 game) {
         int highestScore = Math.max(this.player1Score, this.player2Score);
         for (int i = 0; i < highestScore; i++) {
             if (i < this.player1Score)
@@ -77,11 +76,11 @@ public class TennisTest {
         assertEquals(this.expectedScore, game.getScore());
     }
 
+
     @Test
     public void checkAllScoresTennisGame2() {
         TennisGame2 game = new TennisGame2("player1", "player2");
         checkAllScores(game);
     }
-
 
 }
