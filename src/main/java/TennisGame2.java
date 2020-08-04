@@ -21,6 +21,8 @@ public class TennisGame2 {
         boolean equalAndIsDeuce = player1Point == player2Point && player1Point >= 3;
         boolean player1Wins = player1Point >= 4 && player2Point >= 0 && (player1Point - player2Point) >= 2;
         boolean player2Wins = player2Point >= 4 && player1Point >= 0 && (player2Point - player1Point) >= 2;
+        boolean player1IsAdvantage = player1Point > player2Point && player2Point >= 3 && (player1Point - player2Point) == 1;
+        boolean player2IsAdvantage = player2Point > player1Point && player1Point >= 3 && (player2Point - player1Point) == 1;
 
         if (equalAndIsNotDeuce) {
             return scoreCalled[player1Point] + "-All";
@@ -28,10 +30,10 @@ public class TennisGame2 {
         if (equalAndIsDeuce) {
             return "Deuce";
         }
-        if (player1Point > player2Point && player2Point >= 3 && (player1Point - player2Point) == 1) {
+        if (player1IsAdvantage) {
             return "Advantage " + player1Name;
         }
-        if (player2Point > player1Point && player1Point >= 3 && (player2Point - player1Point) == 1) {
+        if (player2IsAdvantage) {
             return "Advantage " + player2Name;
         }
         if (player1Wins) {
